@@ -1,0 +1,12 @@
+install vite
+    --npm init vite@latest
+install npm
+    --npm install
+install dependencies
+    npm i three @types/three @react-three/fiber @react-three/drei @react-three/postprocessing
+Run dev server
+    --npm run 
+    
+-get the glb material and nodes attribute
+    npx gltfjsx dollar.glb --transform
+    in order to make our materials reusable which is harder to do with three.js traversing
