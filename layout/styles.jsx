@@ -19,19 +19,20 @@ export const FadeIn = styled.div`
 export const Container = styled.div`
   font-family: 'Inter';
   font-size: 16px;
+  font-weight: 400;
   & h1 {
     padding: 0;
     margin: 0 0 0.05em 0;
     font-family: 'Ayer Poster', serif;
     font-weight: 400;
-    font-size: min(14vw, 12em);
-    line-height: 0.85em;
+    font-size: min(12vw, 12em);
+    line-height: 0.80em;
   }
 `
 
 export const TopLeft = styled.div`
   position: absolute;
-  top: 5vw;
+  top: 4vw;
   left: 5vw;
 `
 
