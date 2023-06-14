@@ -130,7 +130,7 @@ function Dollar({ z }) {
       ref={ref}
       geometry={nodes.Object_2.geometry} 
       material={materials.Material} 
-      scale={100} 
+      scale={70} 
     />
 
   )

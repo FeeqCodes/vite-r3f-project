@@ -12,7 +12,7 @@ export const FadeIn = styled.div`
   width: 100%;
   height: 100%;
   pointer-events: none;
-  background: #ffd863;
+  // background: #ffd863;
   animation: ${fade} 4s normal forwards ease-in-out;
 `
 
@@ -24,7 +24,7 @@ export const Container = styled.div`
     margin: 0 0 0.05em 0;
     font-family: 'Ayer Poster', serif;
     font-weight: 400;
-    font-size: min(18vw, 14em);
+    font-size: min(14vw, 12em);
     line-height: 0.85em;
   }
 `
