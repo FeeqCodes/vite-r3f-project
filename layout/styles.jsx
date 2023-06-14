@@ -49,7 +49,7 @@ export const BottomRight = styled.div`
   right: 5vw;
   width: 35ch;
   max-width: 40%;
-  line-height: 1em;
+  line-height: 1.5em;
   letter-spacing: -0.01em;
   text-align: right;
 `

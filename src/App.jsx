@@ -77,7 +77,7 @@
 import * as THREE from 'three'
 import { Suspense, useRef, useState} from 'react'
 import {Canvas, useFrame, useThree} from '@react-three/fiber'
-// import { useGLTF, Environment } from '@react-three/drei';
+import { useGLTF, Environment } from '@react-three/drei';
 
 import {EffectComposer, DepthOfField} from "@react-three/postprocessing"
 
@@ -92,7 +92,7 @@ function Dollar({ z }) {
   // const [clicked, setClicked] = useState(false)
   const {width, height} = viewport.getCurrentViewport(camera, [0,0, z])
 
-  // const { nodes, materials } = useGLTF('/dollar-transformed.glb')
+  const { nodes, materials } = useGLTF('/dollar-transformed.glb')
 
 
 
@@ -105,33 +105,33 @@ function Dollar({ z }) {
   
   })
 
-  // useFrame( (state)=> {
-  //   ref.current.rotation.set((data.rX += 0.05), (data.rY += 0.05), (data.rZ += 0.05))
-  //   ref.current.position.set(data.x * width, (data.y += 0.15), z)
+  useFrame( (state)=> {
+    ref.current.rotation.set((data.rX += 0.05), (data.rY += 0.05), (data.rZ += 0.05))
+    ref.current.position.set(data.x * width, (data.y += 0.15), z)
 
-  //   if(data.y > height / 1.5) {
-  //     data.y = -height / 1.5
-  //   }
+    if(data.y > height / 1.5) {
+      data.y = -height / 1.5
+    }
 
-  //   ref.current.rotation.y = Math.sin(state.clock.elapsedTime ) * 0.5
-  //   ref.current.rotation.x = Math.sin(state.clock.elapsedTime ) * 0.5
-  //   // data.z = THREE.MathUtils.lerp(ref.current.position.z, clicked ? 1 : 0, 0.1) 
+    ref.current.rotation.y = Math.sin(state.clock.elapsedTime ) * 0.5
+    ref.current.rotation.x = Math.sin(state.clock.elapsedTime ) * 0.5
+    // data.z = THREE.MathUtils.lerp(ref.current.position.z, clicked ? 1 : 0, 0.1) 
 
-  // })
+  })
 
   return(
-    <mesh ref={ref}>
-      <boxGeometry />
-        <meshBasicMaterial color='purple'/>
-    </mesh>
+    // <mesh ref={ref}>
+    //   <boxGeometry />
+    //     <meshBasicMaterial color='purple'/>
+    // </mesh>
 
 
-    // <mesh 
-    //   ref={ref}
-    //   geometry={nodes.Object_2.geometry} 
-    //   material={materials.Material} 
-    //   scale={100} 
-    // />
+    <mesh 
+      ref={ref}
+      geometry={nodes.Object_2.geometry} 
+      material={materials.Material} 
+      scale={100} 
+    />
 
   )
 
@@ -178,8 +178,8 @@ function Dollar({ z }) {
 // }
 export default function App({ count = 120, depth = 20}) {
   return(
-    <Canvas gl={{alpha: false, antialias:false}} camera={{near:0.1, far:110, fov:70}}>
-      <color attach="background" args={[ "#4b5361"]} />
+    <Canvas gl={{alpha: false, antialias:false}} camera={{near:0.5, far:180, fov:70}}>
+      <color attach="background" args={[ "#ffffff"]} />
       {/* <ambientLight intensity={0.5} /> */}
       <spotLight position={[10,10,10]} intensity={5} />
       <Suspense fallback={null}>
@@ -188,9 +188,9 @@ export default function App({ count = 120, depth = 20}) {
         {Array.from({length: count }, (_, i) => (
           <Dollar key={i} z={-(i / count) * depth - 20} />
         ))}
-        {/* <Environment preset='sunset' /> */}
+        <Environment preset='sunset' />
         <EffectComposer>
-          <DepthOfField target={[0,0, depth/ 2]} focalLength={1} bokehScale={0} height={700}/>
+          <DepthOfField target={[0,0, depth/ 2]} focalLength={0.8} bokehScale={12} height={700}/>
         </EffectComposer>
 
         {/* <Html>

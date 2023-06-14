@@ -32,11 +32,11 @@ body,
 
 body {
   /* background: #ffd863; */
-  color: white;
+  color: black;
 }
 
 a {
-  color: white;
+  /* color: white; */
 }
 
 input[type='range'] {
